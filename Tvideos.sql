@@ -1,27 +1,31 @@
 CREATE TABLE Video (
-  id INTEGER PRIMARY KEY,
-  titre VARCHAR(30),
-  lien TEXT,
-  description TEXT,
-  like INTEGER,
-  dislike INTEGER,
-  id_chaine INTEGER,
+  id INTEGER PRIMARY KEY AUTOINCREMENT, 
+  titre TEXT ,
+  lien TEXT ,
+  description TEXT ,
+  like INTEGER ,
+  dislike INTEGER ,
+  id_chaine INTEGER ,
+  vue INTEGER,
+  timestamp INTEGER ,
   FOREIGN KEY (id_chaine) REFERENCES Chaine(id)
 );
 
 CREATE TABLE Chaine (
-  id INTEGER PRIMARY KEY,
-  pseudo VARCHAR(25),
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  pseudo TEXT,
   abonnes INTEGER,
   bio TEXT,
-  email VARCHAR(30)
+  timestamp INTEGER ,
+  email TEXT 
 );
 
 CREATE TABLE Commentaire (
-  id INTEGER PRIMARY KEY,
-  contenue VARCHAR(150),
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  contenue TEXT,
   like INTEGER,
-  id_chaine VARCHAR(25),
+  id_chaine TEXT,
+  timestamp INTEGER,
   FOREIGN KEY (id_chaine) REFERENCES Chaine(id)
 );
 
