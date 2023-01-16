@@ -102,7 +102,8 @@ Ce code a été écrit par Dylan.
 # Références
 
 Le code source de ce projet est disponible sur GitHub à l'adresse suivante :
-<a href="https://github.com/gygggggggh/tvideos.git"> <i class="fab fa-github"></i> tvideos </a>
+[tvideos](https://github.com/gygggggggh/tvideos.git)
+
 
 # Temps de développement
 
