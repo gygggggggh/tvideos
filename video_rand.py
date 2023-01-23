@@ -2,22 +2,21 @@ import random
 import sqlite3
 from faker import Faker
 from faker.providers import BaseProvider
-import time
 
 # Créer un objet Faker avec la localelisation française
 fake = Faker("fr_FR")
 
-# Définir un fournisseur pour générer des mots-clés vidéo
+# Définir un fournisseur pour générer des mots-clés 
     
 class Key(BaseProvider):
     def video_keyword(self):
         return random.choice(['NSI','rick roll','linux','math','walid','yanis','diego','lucky','jorris','yorris','lucasb','lucasz','aurelien','dylan','emeric','lyan','liam','M. fuchs','louca','salle F319'])
 
     def id(self):
-        # Génère un ID de vidéo YouTube aléatoire
+        # Génère un ID de vidéo aléatoire
         characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-'
         id = ''.join(random.sample(characters, 11))
-        return f'https://www.youtube.com/watch?v={id}'
+        return f'https://www.tvideos.com/watch?v={id}'
     
 # Ajouter le fournisseur à l'objet Faker
 fake.add_provider(Key)
@@ -30,7 +29,7 @@ class Video:
         self.dislikes = self.random_dislike()
         self.views = self.random_view()
         self.id = self.video_id()
-        self.timestamp = self.random_timestamp()
+        self.timestamp = random.randrange(946684800, 2145916800)
 
     def random_title(self):
         titre = ""
@@ -65,9 +64,6 @@ class Video:
         _id_ = ""
         _id_ += fake.id()
         return _id_
-    def random_timestamp(self):
-        # Génère un timestamp aléatoire entre le 1er janvier 2005 et le 1er janvier 2078
-        return random.randrange(946684800, 2145916800)
     
 import random
 

@@ -1,6 +1,9 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-TuG0h/kUZOr9XbKVfhG/DG/Fn5b5jSJLg5x5G5j5L5J0X4o5P5jz4e2j1dO8i2e2t+A5jR/L7i+9Xh/l7jK3qfOw==" crossorigin="anonymous" />
 
 # Générateur de données aléatoires pour simuler des informations sur des vidéos YouTube, des chaînes YouTube et des commentaires
+
+## but
+
+
 
 ## Bibliothèques utilisées
 
