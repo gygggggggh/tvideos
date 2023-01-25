@@ -3,8 +3,6 @@
 
 ## but
 
-
-
 ## Bibliothèques utilisées
 
 - `random` : utilisée pour générer des données aléatoires telles que des likes, des dislikes, des vues, des abonnés, des ID de vidéos et des timestamp.
@@ -35,6 +33,7 @@ Cette classe utilise les méthodes de `Faker` pour générer des informations su
 ## Méthode `__init__()`
 
 Cette méthode est appelée lorsque la classe est instanciée et initialise les attributs suivants :
+
 - `title` : un titre aléatoire généré à l'aide de la méthode `random_title()`
 - `description` : une description aléatoire générée à l'aide de la méthode `random_description()`
 - `likes` : un nombre aléatoire de likes généré à l'aide de la méthode `random_like()`
@@ -68,6 +67,7 @@ Cette méthode utilise `random.randrange()` pour générer un timestamp aléatoi
 ## Méthode `__init__()`
 
 Cette méthode est appelée lorsque la classe est instanciée et initialise les attributs suivants :
+
 - `pseudo` : un pseudo aléatoire généré à l'aide de la méthode `random_pseudo()`
 - `abonnes` : un nombre aléatoire d'abonnés généré à l'aide de `random.randint()`
 - `bio` : une bio aléatoire générée à l'aide de la méthode `random_bio()`
@@ -91,6 +91,7 @@ Cette méthode utilise la méthode `email()` de `Faker` pour générer un email 
 ## Méthode `__init__()`
 
 Cette méthode est appelée lorsque la classe est instanciée et initialise les attributs suivants :
+
 - `contenu` : un contenu aléatoire généré à l'aide de la méthode `random_contenu()`
 - `timestamp` : un timestamp aléatoire généré à l'aide de `random.randrange()`
 
@@ -107,9 +108,7 @@ Ce code a été écrit par Dylan.
 Le code source de ce projet est disponible sur GitHub à l'adresse suivante :
 [tvideos](https://github.com/gygggggggh/tvideos.git)
 
-
 # Temps de développement
 
 Le temps de développement de ce projet est disponible sur Wakatime :
 [![wakatime](https://wakatime.com/badge/user/1dff2156-409d-4a9c-83e3-80e9582fd198/project/42706355-eb4c-46bb-b109-9cc2e706abfb.svg)](https://wakatime.com/badge/user/1dff2156-409d-4a9c-83e3-80e9582fd198/project/42706355-eb4c-46bb-b109-9cc2e706abfb)
-
