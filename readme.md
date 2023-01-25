@@ -1,7 +1,8 @@
 
-# Générateur de données aléatoires pour simuler des informations sur des vidéos YouTube, des chaînes YouTube et des commentaires
+# structure du code python de tvideos.py
+## but du projet
 
-## but
+Ce projet a pour but de générer des données aléatoires pour simuler des informations sur des vidéos YouTube, des chaînes YouTube et des commentaires.
 
 ## Bibliothèques utilisées
 
@@ -28,7 +29,7 @@ Cette classe utilise les méthodes de `Faker` pour générer des informations su
 
 Cette classe utilise les méthodes de `Faker` pour générer des informations sur les commentaires telles que les contenus et les timestamp.
 
-# Utilisation de la classe `Video`
+### Utilisation de la classe `Video`
 
 ## Méthode `__init__()`
 
@@ -86,29 +87,29 @@ Cette méthode utilise la méthode `text()` de `Faker` pour générer une bio al
 
 Cette méthode utilise la méthode `email()` de `Faker` pour générer un email aléatoire pour la chaîne.
 
-# Utilisation de la classe `Commentaire`
+## Utilisation de la classe `Commentaire`
 
-## Méthode `__init__()`
+### Méthode `__init__()`
 
 Cette méthode est appelée lorsque la classe est instanciée et initialise les attributs suivants :
 
 - `contenu` : un contenu aléatoire généré à l'aide de la méthode `random_contenu()`
 - `timestamp` : un timestamp aléatoire généré à l'aide de `random.randrange()`
 
-## Méthode `random_contenu()`
+### Méthode `random_contenu()`
 
 Cette méthode utilise les méthodes de `Faker` pour générer un contenu aléatoire pour le commentaire.
 
-# Auteur
+## Auteur
 
 Ce code a été écrit par Dylan.
 
-# Références
+## Références
 
 Le code source de ce projet est disponible sur GitHub à l'adresse suivante :
 [tvideos](https://github.com/gygggggggh/tvideos.git)
 
-# Temps de développement
+## Temps de développement
 
 Le temps de développement de ce projet est disponible sur Wakatime :
 [![wakatime](https://wakatime.com/badge/user/1dff2156-409d-4a9c-83e3-80e9582fd198/project/42706355-eb4c-46bb-b109-9cc2e706abfb.svg)](https://wakatime.com/badge/user/1dff2156-409d-4a9c-83e3-80e9582fd198/project/42706355-eb4c-46bb-b109-9cc2e706abfb)
