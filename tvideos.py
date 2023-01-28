@@ -167,31 +167,6 @@ def insert_table_base(cursor):
     
     cursor.execute("""INSERT INTO n_com(id_video, id_commentaire)
         VALUES(?, ?)""", (id_video, id_commentaire))
-    
-import random
-import sqlite3
-
-# Définir une fonction pour ajouter une vidéo à la table videos avec un ID de chaîne existant
-def add_video(cursor, id_chaine, title, description, likes, dislikes, views, timestamp):
-    cursor.execute("""INSERT INTO videos(id_chaine, titre, description, like, dislike, vue, timestamp)
-        VALUES(?, ?, ?, ?, ?, ?, ?)""", (id_chaine, title, description, likes, dislikes, views, timestamp))
-
-# Définir une fonction pour peupler la base de données avec des données de vidéo aléatoires
-def rand_videos(cursor):
-    # Récupérer le nombre d'ID de chaîne existants
-    cursor.execute("SELECT COUNT(*) FROM chaines")
-    num_chaines = cursor.fetchone()[0]
-
-    # Générer un certain nombre de vidéos aléatoires
-    for i in range(random.randint(1, 20)):
-        # Générer un ID de chaîne aléatoire existant
-        id_chaine = random.randint(1, num_chaines)
-        maVideo = Video()
-        # Ajouter une vidéo dans la table videos avec l'ID de chaîne aléatoire
-        add_video(cursor, id_chaine, maVideo.title, maVideo.description, maVideo.likes, maVideo.dislikes, maVideo.views, maVideo.timestamp)
-        
-    # Enregistrer les changements dans la base de données
-    conn.commit()
 
 
 def clear_database(cursor):
@@ -207,8 +182,6 @@ def clear_database(cursor):
 
 for i in range(120):
     insert_table_base(cursor)
-    rand_videos(cursor)
-    
 #clear_database(cursor)
 
 # Enregistrer les changements dans la base de données
