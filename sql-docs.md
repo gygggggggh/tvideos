@@ -6,79 +6,79 @@
 
 Cette table contient des informations sur les vidéos. Elle possède les champs suivants :
 
-- `id` : un entier qui représente l'identifiant unique de la vidéo, et qui est utilisé comme clé primaire. Il est également défini comme étant auto-incrémenté.
+- `id` : un entier qui représente l'identifiant unique de la vidéo, et qui est utilisé comme clé primaire. Il est également défini comme étant auto-incrémenté
 
-- `titre` : un champ de type texte qui contient le titre de la vidéo.
+- `titre` : un champ de type texte qui contient le titre de la vidéo
 
-- `lien` : un champ de type texte qui contient le lien vers la vidéo.
+- `lien` : un champ de type texte qui contient le lien vers la vidéo
 
-- `description` : un champ de type texte qui contient la description de la vidéo.
+- `description` : un champ de type texte qui contient la description de la vidéo
 
-- `like` : un champ de type entier qui contient le nombre de "likes" de la vidéo.
+- `like` : un champ de type entier qui contient le nombre de "likes" de la vidéo
 
-- `dislike` : un champ de type entier qui contient le nombre de "dislikes" de la vidéo.
+- `dislike` : un champ de type entier qui contient le nombre de "dislikes" de la vidéo
 
 - `id_chaine` : un champ de type entier qui contient l'identifiant de la chaîne à laquelle appartient la vidéo. Il est utilisé comme clé étrangère pour faire référence à la table `chaines`.
 
-- `vue` : un champ de type entier qui contient le nombre de vues de la vidéo.
+- `vue` : un champ de type entier qui contient le nombre de vues de la vidéo
 
-- `timestamp` : un champ de type entier qui contient la date de publication de la vidéo.
+- `timestamp` : un champ de type entier qui contient la date de publication de la vidéo
 
-- `PRIMARY KEY` : un champ qui définit le champ `id` comme clé primaire.
+- `PRIMARY KEY` : un champ qui définit le champ `id` comme clé primaire
 
-- `FOREIGN KEY` : un champ qui définit le champ `id_chaine` comme clé étrangère pour faire référence à la table `chaines`.
+- `FOREIGN KEY` : un champ qui définit le champ `id_chaine` comme clé étrangère pour faire référence à la table `chaines`
 
 ### Table `chaines`
 
 Cette table contient des informations sur les chaînes. Elle possède les champs suivants :
 
-- `id` : un entier qui représente l'identifiant unique de la chaîne, et qui est utilisé comme clé primaire. Il est également défini comme étant auto-incrémenté.
+- `id` : un entier qui représente l'identifiant unique de la chaîne, et qui est utilisé comme clé primaire. Il est également défini comme étant auto-incrémenté
 
-- `pseudo` : un champ de type texte qui contient le pseudo de la chaîne.
+- `pseudo` : un champ de type texte qui contient le pseudo de la chaîne
 
-- `abonnes` : un champ de type entier qui contient le nombre d'abonnés de la chaîne.
+- `abonnes` : un champ de type entier qui contient le nombre d'abonnés de la chaîne
 
-- `bio` : un champ de type texte qui contient la biographie de la chaîne.
+- `bio` : un champ de type texte qui contient la biographie de la chaîne
 
-- `timestamp` : un champ de type entier qui contient la date de création de la chaîne.
+- `timestamp` : un champ de type entier qui contient la date de création de la chaîne
 
-- `email` : un champ de type texte qui contient l'email de la chaîne.
+- `email` : un champ de type texte qui contient l'email de la chaîne
 
-- `PRIMARY KEY` : un champ qui définit le champ `id` comme clé primaire.
+- `PRIMARY KEY` : un champ qui définit le champ `id` comme clé primaire
 
-- `FOREIGN KEY` : un champ qui définit le champ `id_chaine` comme clé étrangère pour faire référence à la table `videos`.
+- `FOREIGN KEY` : un champ qui définit le champ `id_chaine` comme clé étrangère pour faire référence à la table `videos`
 
 ### Table `commentaires`
 
 Cette table contient des informations sur les commentaires. Elle possède les champs suivants :
 
-- `id` : un entier qui représente l'identifiant unique du commentaire, et qui est utilisé comme clé primaire. Il est également défini comme étant auto-incrémenté.
+- `id` : un entier qui représente l'identifiant unique du commentaire, et qui est utilisé comme clé primaire. Il est également défini comme étant auto-incrémenté
 
-- `contenue` : un champ de type texte qui contient le contenu du commentaire.
+- `contenue` : un champ de type texte qui contient le contenu du commentaire
 
-- `like` :  un champ de type entier qui contient le nombre de "likes" du commentaire.
+- `like` :  un champ de type entier qui contient le nombre de "likes" du commentaire
 
-- `id_chaine` : un champ de type entier qui contient l'identifiant de la chaîne à laquelle appartient le commentaire. Il est utilisé comme clé étrangère pour faire référence à la table `chaines`.
+- `id_chaine` : un champ de type entier qui contient l'identifiant de la chaîne à laquelle appartient le commentaire. Il est utilisé comme clé étrangère pour faire référence à la table `chaines`
 
-- `id_video` : un champ de type entier qui contient l'identifiant de la vidéo à laquelle appartient le commentaire. Il est utilisé comme clé étrangère pour faire référence à la table `videos`.
+- `id_video` : un champ de type entier qui contient l'identifiant de la vidéo à laquelle appartient le commentaire. Il est utilisé comme clé étrangère pour faire référence à la table `videos`
 
-- `timestamp` : un champ de type entier qui contient la date de publication du commentaire.
+- `timestamp` : un champ de type entier qui contient la date de publication du commentaire
 
-- `PRIMARY KEY` : un champ qui définit le champ `id` comme clé primaire.
+- `PRIMARY KEY` : un champ qui définit le champ `id` comme clé primaire
 
-- `FOREIGN KEY` : un champ qui définit les champs `id_chaine` et `id_video` comme clé étrangère pour faire référence à la table `chaines` et `videos`.
+- `FOREIGN KEY` : un champ qui définit les champs `id_chaine` et `id_video` comme clé étrangère pour faire référence à la table `chaines` et `videos`
 
 ### Table ##n_com`
 
 Cette table contient des informations sur les relations entre les vidéos et les commentaires. Elle possède les champs suivants :
 
-- `id_video` : un champ de type entier qui contient l'identifiant de la vidéo. Il est utilisé comme clé étrangère pour faire référence à la table `videos`.
+- `id_video` : un champ de type entier qui contient l'identifiant de la vidéo. Il est utilisé comme clé étrangère pour faire référence à la table `videos`
 
-- `id_commentaire` : un champ de type entier qui contient l'identifiant du commentaire. Il est utilisé comme clé étrangère pour faire référence à la table `commentaires`.
+- `id_commentaire` : un champ de type entier qui contient l'identifiant du commentaire. Il est utilisé comme clé étrangère pour faire référence à la table `commentaires`
 
 - `PRIMARY KEY` : un champ qui définit les champs `id_video` et `id_commentaire` comme clé primaire.
 
-- `FOREIGN KEY` : un champ qui définit les champs `id_video` et `id_commentaire` comme clé étrangère pour faire référence à la table `videos` et `commentaires`.
+- `FOREIGN KEY` : un champ qui définit les champs `id_video` et `id_commentaire` comme clé étrangère pour faire référence à la table `videos` et `commentaires`
 
 ## Exemples de requêtes SQL pour interagir avec les tables
 
