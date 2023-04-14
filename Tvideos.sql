@@ -36,4 +36,4 @@ CREATE TABLE IF NOT EXISTS n_com (
         PRIMARY KEY (id_video, id_commentaire),
         FOREIGN KEY (id_video) REFERENCES Video(id),
         FOREIGN KEY (id_commentaire) REFERENCES Commentaire(id)
-        );
+       );
