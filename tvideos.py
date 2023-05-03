@@ -1,5 +1,6 @@
 import random
 import sqlite3
+from tkinter import messagebox, ttk
 from faker import Faker
 from faker.providers import BaseProvider
 from  tkinter import *
@@ -183,14 +184,10 @@ def clear_database(cursor):
 for i in range(120):
     insert_table_base(cursor)
 
-#clear_database(cursor)
+# clear_database(cursor)
 
 # Enregistrer les changements dans la base de données
 conn.commit()
 # Fermer la connexion à la base de données
 conn.close()
 
-
-
-
-                
