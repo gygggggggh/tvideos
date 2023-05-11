@@ -1,9 +1,8 @@
 import random
 import sqlite3
-from tkinter import messagebox, ttk
 from faker import Faker
 from faker.providers import BaseProvider
-from  tkinter import *
+
 
 # Créer un objet Faker avec la localelisation française
 fake = Faker("fr_FR")
@@ -181,8 +180,8 @@ def clear_database(cursor):
 
 
 
-for i in range(120):
-    insert_table_base(cursor)
+# for i in range(120):
+#     insert_table_base(cursor)
 
 # clear_database(cursor)
 
