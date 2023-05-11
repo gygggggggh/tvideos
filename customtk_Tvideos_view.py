@@ -12,16 +12,16 @@ class ThreeChoiceFrame(customtkinter.CTkFrame):
         self.radio_var = customtkinter.IntVar()
 
         self.titrefont = customtkinter.CTkFont(family="Arial", size=12, weight="bold")
-        self.titre = customtkinter.CTkLabel(self, text="Choisissez une table", font=self.titrefont)
+        self.titre = customtkinter.CTkLabel(self, text="Choisissez une table", font=self.titrefont)   # noqa: E501
         self.titre.pack(pady=1)
         
-        self.radio_1 = customtkinter.CTkRadioButton(self, text="videos", variable=self.radio_var, value=1)
+        self.radio_1 = customtkinter.CTkRadioButton(self, text="videos", variable=self.radio_var, value=1)# noqa: E501
         self.radio_1.pack(anchor="w")
-        self.radio_2 = customtkinter.CTkRadioButton(self, text="commentaires", variable=self.radio_var, value=2)
+        self.radio_2 = customtkinter.CTkRadioButton(self, text="commentaires", variable=self.radio_var, value=2)# noqa: E501
         self.radio_2.pack(anchor="w")
-        self.radio_3 = customtkinter.CTkRadioButton(self, text="chaines", variable=self.radio_var, value=3)
+        self.radio_3 = customtkinter.CTkRadioButton(self, text="chaines", variable=self.radio_var, value=3)# noqa: E501
         self.radio_3.pack(anchor="w")
-        self.radio_4 = customtkinter.CTkRadioButton(self, text="n_com", variable=self.radio_var, value=4)
+        self.radio_4 = customtkinter.CTkRadioButton(self, text="n_com", variable=self.radio_var, value=4)# noqa: E501
         self.radio_4.pack(anchor="w")
 
 class App(customtkinter.CTk):
@@ -34,7 +34,7 @@ class App(customtkinter.CTk):
         self.choice_frame = ThreeChoiceFrame(self)
         self.choice_frame.pack(pady=20)
 
-        self.submit_button = customtkinter.CTkButton(self, text="Submit", command=self.submit)
+        self.submit_button = customtkinter.CTkButton(self, text="Submit", command=self.submit)# noqa: E501
         self.submit_button.pack(pady=10)
 
         
@@ -48,7 +48,7 @@ class App(customtkinter.CTk):
             cursor = conn.cursor()
 
             # Query the videos table
-            cursor.execute("SELECT id , titre, lien, description, like, dislike, id_chaine, vue, timestamp FROM videos")
+            cursor.execute("SELECT id , titre, lien, description, like, dislike, id_chaine, vue, timestamp FROM videos")  # noqa: E501
             rows = cursor.fetchall()
 
             # Create a new sub-window to display the results
@@ -57,7 +57,7 @@ class App(customtkinter.CTk):
             sub_window.geometry("700x500")
 
             # Create a Treeview to display the results
-            columns = ("id", "titre", "lien", "description", "like", "dislike", "id_chaine", "vue", "timestamp")
+            columns = ("id", "titre", "lien", "description", "like", "dislike", "id_chaine", "vue", "timestamp")# noqa: E501
             tree = ttk.Treeview(sub_window, columns=columns, show="headings")
             for col in columns:
                 tree.heading(col, text=col)
@@ -107,7 +107,7 @@ class App(customtkinter.CTk):
             cursor = conn.cursor()
 
             # Query the chaine table
-            cursor.execute("SELECT id, pseudo, abonnes,bio,timestamp,email FROM chaines")
+            cursor.execute("SELECT id, pseudo, abonnes,bio,timestamp,email FROM chaines")# noqa: E501
             rows = cursor.fetchall()
 
             # Create a new sub-window to display the results
