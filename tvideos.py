@@ -189,4 +189,3 @@ def clear_database(cursor):
 conn.commit()
 # Fermer la connexion à la base de données
 conn.close()
-
