@@ -30,7 +30,7 @@ class Video:
         self.dislikes = self.random_dislike()
         self.views = self.random_view()
         self.id = self.video_id()
-        self.timestamp = random.randrange(946684800, 2145916800)
+        self.timestamp = str(random.randrange(946684800, 2145916800))
 
     def random_title(self):
         titre = ""
@@ -52,13 +52,13 @@ class Video:
         return description.replace(".", "")
     
     def random_like(self):
-        return random.randint(0, 100000)
+        return str(random.randint(0, 100000))
 
     def random_dislike(self):
-        return random.randint(0, 100000)
+        return str(random.randint(0, 100000))
 
     def random_view(self):
-        return random.randint(0, 100000000)
+        return str(random.randint(0, 100000000))
 
     def video_id(self):
         # Génère un ID de vidéo aléatoire
@@ -66,14 +66,13 @@ class Video:
         _id_ += fake.id()
         return _id_
     
-import random
 
 class Chaine:
     def __init__(self):
         self.pseudo = self.random_pseudo()
-        self.abonnes = random.randint(0, 1000000)
+        self.abonnes = str(random.randint(0, 1000000))
         self.bio = self.random_bio()
-        self.timestamp = random.randrange(946684800, 2145916800)
+        self.timestamp = str(random.randrange(946684800, 2145916800))
         self.email = self.random_email()
 
     def random_pseudo(self):
@@ -87,8 +86,8 @@ class Chaine:
 class Commentaire:
     def __init__(self):
         self.contenu = self.random_contenu()
-        self.like = random.randint(0, 1000000)
-        self.timestamp = random.randrange(946684800, 2145916800)
+        self.like = str(random.randint(0, 1000000))
+        self.timestamp = str(random.randrange(946684800, 2145916800))
 
     def random_contenu(self):
         return fake.text(max_nb_chars=150)
@@ -105,20 +104,20 @@ def create_tables(cursor):
         titre TEXT,
         lien TEXT,
         description TEXT,
-        like INTEGER,
-        dislike INTEGER,
-        id_chaine INTEGER,
-        vue INTEGER,
-        timestamp INTEGER,
+        like TEXT,
+        dislike TEXT,
+        id_chaine  TEXT,
+        vue TEXT,
+        timestamp TEXT,
         FOREIGN KEY (id_chaine) REFERENCES chaines(id)
         );
     """)
     cursor.execute("""CREATE TABLE IF NOT EXISTS chaines (
         id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
         pseudo TEXT,
-        abonnes INTEGER,
+        abonnes TEXT,
         bio TEXT,
-        timestamp INTEGER,
+        timestamp TEXT,
         email TEXT
         );
     """)
@@ -126,18 +125,18 @@ def create_tables(cursor):
     cursor.execute("""CREATE TABLE IF NOT EXISTS commentaires (
         id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
         contenue TEXT,
-        like INTEGER,
-        id_chaine INTEGER,
-        id_video INTEGER,
-        timestamp INTEGER,
+        like TEXT,
+        id_chaine TEXT,
+        id_video TEXT,
+        timestamp TEXT,
         FOREIGN KEY (id_chaine) REFERENCES chaines(id),
         FOREIGN KEY (id_video) REFERENCES videos(id)
         );
     """)
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS n_com ( 
-        id_video INTEGER,
-        id_commentaire INTEGER,
+        id_video TEXT,
+        id_commentaire TEXT,
         PRIMARY KEY (id_video, id_commentaire),
         FOREIGN KEY (id_video) REFERENCES Video(id),
         FOREIGN KEY (id_commentaire) REFERENCES Commentaire(id)
@@ -180,8 +179,8 @@ def clear_database(cursor):
 
 
 
-# for i in range(120):
-#     insert_table_base(cursor)
+for i in range(120):
+     insert_table_base(cursor)
 
 # clear_database(cursor)
 

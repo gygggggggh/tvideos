@@ -5,7 +5,7 @@ from tkinter import ttk
 customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("green")
 
-class ThreeChoiceFrame(customtkinter.CTkFrame):
+class fourChoiceFrame(customtkinter.CTkFrame):
     def __init__(self, master):
         super().__init__(master)
 
@@ -31,7 +31,7 @@ class App(customtkinter.CTk):
         self.title("Tvideos")
         self.geometry("300x200")
 
-        self.choice_frame = ThreeChoiceFrame(self)
+        self.choice_frame = fourChoiceFrame(self)
         self.choice_frame.pack(pady=20)
 
         self.submit_button = customtkinter.CTkButton(self, text="Submit", command=self.submit)# noqa: E501
