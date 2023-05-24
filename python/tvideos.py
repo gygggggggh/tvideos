@@ -8,7 +8,7 @@ fake = Faker("fr_FR")
 
 class Key(BaseProvider):
     def video_keyword(self):
-        return random.choice(['NSI', 'rick roll', 'linux', 'math', 'walid', 'yanis', 'diego', 'lucky', 'jorris', 'yorris', 'lucasb', 'lucasz', 'aurelien', 'dylan', 'emeric', 'lyan', 'liam', 'M. fuchs', 'louca', 'salle F319'])
+        return random.choice(['NSI', 'rick roll', 'linux', 'math', 'walid', 'yanis', 'diego', 'lucky', 'jorris', 'yorris', 'lucasb', 'lucasz', 'aurelien', 'dylan', 'emeric', 'lyan', 'liam', 'M. fuchs', 'louca', 'salle F319'])  # noqa: E501
 
     def id(self):
         characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_-'
@@ -30,13 +30,13 @@ class Video:
         self.timestamp = str(random.randrange(946684800, 2145916800))
 
     def random_title(self):
-        rnd = [fake.video_keyword()] + [fake.sentence(nb_words=1, variable_nb_words=True, ext_word_list=None) for _ in range(6)]
+        rnd = [fake.video_keyword()] + [fake.sentence(nb_words=1, variable_nb_words=True, ext_word_list=None) for _ in range(6)]  # noqa: E501
         random.shuffle(rnd)
         return ' '.join(rnd[:-1]).replace(".", "")
 
     def random_description(self):
         description = fake.video_keyword() + " "
-        description += ' '.join([fake.sentence(nb_words=1, variable_nb_words=True, ext_word_list=None) for _ in range(random.randint(10, 50))]) + " "
+        description += ' '.join([fake.sentence(nb_words=1, variable_nb_words=True, ext_word_list=None) for _ in range(random.randint(10, 50))]) + " "  # noqa: E501
         return description.replace(".", "")
 
     def random_like(self):
@@ -80,7 +80,7 @@ class Commentaire:
         return fake.text(max_nb_chars=150)
 
 
-conn = sqlite3.connect("tvideos.db")
+conn = sqlite3.connect("db/tvideos.db")
 cursor = conn.cursor()
 
 
@@ -138,19 +138,19 @@ def insert_table_base(cursor):
     maChaine = Chaine()
 
     cursor.execute("""INSERT INTO chaines(pseudo, abonnes, bio, timestamp, email)
-        VALUES(?, ?, ?, ?, ?)""", (maChaine.pseudo, maChaine.abonnes, maChaine.bio, maChaine.timestamp, maChaine.email))
+        VALUES(?, ?, ?, ?, ?)""", (maChaine.pseudo, maChaine.abonnes, maChaine.bio, maChaine.timestamp, maChaine.email))  # noqa: E501
 
     id_chaine = cursor.lastrowid
 
     maVideo = Video()
     cursor.execute("""INSERT INTO videos(titre, lien, description, likes, dislikes, id_chaine, views, timestamp)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?)""", (maVideo.title, maVideo.id, maVideo.description, maVideo.likes, maVideo.dislikes, id_chaine, maVideo.views, maVideo.timestamp))
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?)""", (maVideo.title, maVideo.id, maVideo.description, maVideo.likes, maVideo.dislikes, id_chaine, maVideo.views, maVideo.timestamp))  # noqa: E501
 
     id_video = cursor.lastrowid
 
     monCommentaire = Commentaire()
     cursor.execute("""INSERT INTO commentaires(contenu, likes, id_chaine, id_video, timestamp)
-        VALUES(?, ?, ?, ?, ?)""", (monCommentaire.contenu, monCommentaire.like, id_chaine, id_video, monCommentaire.timestamp))
+        VALUES(?, ?, ?, ?, ?)""", (monCommentaire.contenu, monCommentaire.like, id_chaine, id_video, monCommentaire.timestamp))  # noqa: E501
 
     id_commentaire = cursor.lastrowid
 
@@ -166,8 +166,8 @@ def clear_database(cursor):
     cursor.execute("UPDATE sqlite_sequence SET seq = 0")
 
 
-# for i in range(120):
-#     insert_table_base(cursor)
+for i in range(120):
+    insert_table_base(cursor)
 
 # clear_database(cursor)
 

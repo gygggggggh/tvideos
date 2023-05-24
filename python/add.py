@@ -13,21 +13,21 @@ class FourChoiceFrame(ctk.CTkFrame):
         self.radio_var = ctk.IntVar()
 
         self.titrefont = ctk.CTkFont(family="Arial", size=12, weight="bold")
-        self.titre = ctk.CTkLabel(self, text="Choisissez une table", font=self.titrefont)
+        self.titre = ctk.CTkLabel(self, text="Choisissez une table", font=self.titrefont) # noqa: E501
         self.titre.pack(pady=1)
 
         choices = ["videos", "commentaires", "chaines", "n_com"]
         for i, choice in enumerate(choices, start=1):
-            radio_button = ctk.CTkRadioButton(self, text=choice, variable=self.radio_var, value=i)
+            radio_button = ctk.CTkRadioButton(self, text=choice, variable=self.radio_var, value=i)  # noqa: E501
             radio_button.pack(anchor="w")
 
 
 class App(ctk.CTk):
     TABLES = {
-        1: ("Videos", ["titre", "lien", "description", "like", "dislike", "id_chaine", "vue", "timestamp"]),
+        1: ("Videos", ["titre", "lien", "description", "like", "dislike", "id_chaine", "vue", "timestamp"]),  # noqa: E501
         2: ("Commentaires", ["contenue", "like", "id_chaine", "id_video", "timestamp"]),
-        3: ("Chaines", ["pseudo", "abonnes", "description", "bio", "timestamp", "email"]),
-        4: ("N_com", ["pseudo", "abonnes", "description", "bio", "timestamp", "email"])
+        3: ("Chaines", ["pseudo", "abonnes", "description", "bio", "timestamp", "email"]),  # noqa: E501
+        4: ("n_com", ["pseudo", "abonnes", "description", "bio", "timestamp", "email"])
     }
 
     def __init__(self):
@@ -60,7 +60,7 @@ class App(ctk.CTk):
             entry.grid(row=i, column=1)
             entries.append(entry)
 
-        confirm_button = ctk.CTkButton(sub_window, text="Submit", command=lambda: self.insert_data(table_name, column_names, entries))
+        confirm_button = ctk.CTkButton(sub_window, text="Submit", command=lambda: self.insert_data(table_name, column_names, entries))  # noqa: E501
         confirm_button.grid(row=len(labels), column=0, columnspan=2, pady=10)
 
         sub_window.mainloop()
@@ -72,7 +72,7 @@ class App(ctk.CTk):
         cursor = connection.cursor()
 
         placeholders = ', '.join(['?'] * len(column_names))
-        query = f"INSERT INTO `{table_name}` ({', '.join(column_names)}) VALUES ({placeholders})"
+        query = f"INSERT INTO `{table_name}` ({', '.join(column_names)}) VALUES ({placeholders})"  # noqa: E501
 
         cursor.execute(query, data)
         connection.commit()

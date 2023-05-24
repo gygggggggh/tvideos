@@ -13,7 +13,7 @@ class FourChoiceFrame(ctk.CTkFrame):
         self.radio_var = ctk.IntVar()
 
         self.titrefont = ctk.CTkFont(family="Arial", size=12, weight="bold")
-        self.titre = ctk.CTkLabel(self, text="Choisissez une table", font=self.titrefont)
+        self.titre = ctk.CTkLabel(self, text="Choisissez une table", font=self.titrefont)  # noqa: E501
         self.titre.pack(pady=1)
 
         table_choices = {
@@ -24,14 +24,14 @@ class FourChoiceFrame(ctk.CTkFrame):
         }
 
         for choice, table_name in table_choices.items():
-            radio_button = ctk.CTkRadioButton(self, text=table_name, variable=self.radio_var, value=choice)
+            radio_button = ctk.CTkRadioButton(self, text=table_name, variable=self.radio_var, value=choice)  # noqa: E501
             radio_button.pack(anchor="w")
 
 
 class App(ctk.CTk):
-    TABLES = {
-        1: ("Videos", ["id", "titre", "lien", "description", "like", "dislike", "id_chaine", "vue", "timestamp"]),
-        2: ("Commentaires", ["id", "contenue", "id_video", "timestamp"]),
+    TA= {
+        1: ("Videos", ["id", "titre", "lien", "description", "likes", "dislikes", "id_chaine", "views", "timestamp"]),  # noqa: E501
+        2: ("Commentaires", ["id", "contenu", "id_video", "timestamp"]),
         3: ("Chaines", ["id", "pseudo", "abonnes", "bio", "timestamp", "email"]),
         4: ("N_com", ["id_video", "id_commentaire"])
     }
@@ -54,7 +54,7 @@ class App(ctk.CTk):
             table_name, columns = self.TABLES[selected_choice]
 
             # Connect to the SQLite database
-            conn = sqlite3.connect('tvideos.db')
+            conn = sqlite3.connect('db/tvideos.db')
             cursor = conn.cursor()
 
             # Query the selected table
