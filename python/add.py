@@ -23,11 +23,11 @@ class FourChoiceFrame(ctk.CTkFrame):
 
 
 class App(ctk.CTk):
-    TABLES = {
-        1: ("Videos", ["titre", "lien", "description", "like", "dislike", "id_chaine", "vue", "timestamp"]),  # noqa: E501
-        2: ("Commentaires", ["contenue", "like", "id_chaine", "id_video", "timestamp"]),
-        3: ("Chaines", ["pseudo", "abonnes", "description", "bio", "timestamp", "email"]),  # noqa: E501
-        4: ("n_com", ["pseudo", "abonnes", "description", "bio", "timestamp", "email"])
+    TABLES= {
+        1: ("Videos", ["titre", "lien", "description", "likes", "dislikes", "id_chaine", "views", "timestamp"]),  # noqa: E501
+        2: ("Commentaires", ["contenu", "id_video", "timestamp"]),
+        3: ("Chaines", ["pseudo", "abonnes", "bio", "timestamp", "email"]),
+        4: ("N_com", ["id_video", "id_commentaire"])
     }
 
     def __init__(self):
@@ -68,7 +68,7 @@ class App(ctk.CTk):
     def insert_data(self, table_name, column_names, entries):
         data = [entry.get() for entry in entries]
 
-        connection = sqlite3.connect("tvideos.db")
+        connection = sqlite3.connect("db/tvideos.db")
         cursor = connection.cursor()
 
         placeholders = ', '.join(['?'] * len(column_names))

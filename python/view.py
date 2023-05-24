@@ -29,7 +29,7 @@ class FourChoiceFrame(ctk.CTkFrame):
 
 
 class App(ctk.CTk):
-    TA= {
+    TABLES= {
         1: ("Videos", ["id", "titre", "lien", "description", "likes", "dislikes", "id_chaine", "views", "timestamp"]),  # noqa: E501
         2: ("Commentaires", ["id", "contenu", "id_video", "timestamp"]),
         3: ("Chaines", ["id", "pseudo", "abonnes", "bio", "timestamp", "email"]),

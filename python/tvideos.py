@@ -167,9 +167,9 @@ def clear_database(cursor):
 
 
 for i in range(120):
-    insert_table_base(cursor)
+     insert_table_base(cursor)
 
-# clear_database(cursor)
+clear_database(cursor)
 
 conn.commit()
 conn.close()

@@ -65,6 +65,22 @@ class App(ctk.CTk):
             subwindow.title(self.TABLES[selected_choice][0])
             subwindow.geometry("300x300")
 
+        
+            entries = []
+            for i, label_text in enumerate(columns):
+                label = ctk.CTkLabel(subwindow, text=label_text)
+                label.grid(row=i, column=0)
+
+                entry = ctk.CTkEntry(subwindow)
+                entry.grid(row=i, column=1)
+                entries.append(entry)
+
+            # Fill the entries with the data from the selected row
+            
+                
+            
+ 
+
             # main loop
             subwindow.mainloop()
 
