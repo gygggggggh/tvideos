@@ -57,6 +57,7 @@ class App(ctk.CTk):
             conn = sqlite3.connect('db/tvideos.db')
             cursor = conn.cursor()
 
+            
             # Query the selected table
             cursor.execute(f"SELECT {', '.join(columns)} FROM {table_name} WHERE id={self.entry_id.get()}")  # noqa: E501
             row = cursor.fetchone()
