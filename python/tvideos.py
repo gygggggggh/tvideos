@@ -80,7 +80,7 @@ class Commentaire:
         return fake.text(max_nb_chars=150)
 
 
-conn = sqlite3.connect("db/tvideos.db")
+conn = sqlite3.connect("C:\Code/nsi_T/tvideos/db/tvideos.db")
 cursor = conn.cursor()
 
 
@@ -169,7 +169,7 @@ def clear_database(cursor):
 for i in range(120):
      insert_table_base(cursor)
 
-clear_database(cursor)
+#clear_database(cursor)
 
 conn.commit()
 conn.close()

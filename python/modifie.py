@@ -42,6 +42,7 @@ class App(ctk.CTk):
         self.label_id.pack(pady=1)
 
         self.entry_id = ctk.CTkEntry(self)
+        self.entry_id.insert(0, "1")
         self.entry_id.pack(pady=1)
 
         self.submit_button = ctk.CTkButton(self, text="Submit", command=self.submit)
@@ -57,35 +58,43 @@ class App(ctk.CTk):
             cursor = conn.cursor()
 
             # Query the selected table
-            cursor.execute(f"SELECT {', '.join(columns)} FROM {table_name} where id={self.entry_id.get()}")  # noqa: E501
-            rows = cursor.fetchall()
+            cursor.execute(f"SELECT {', '.join(columns)} FROM {table_name} WHERE id={self.entry_id.get()}")  # noqa: E501
+            row = cursor.fetchone()
 
-            # Create a subwindow
-            subwindow = ctk.CTk()
-            subwindow.title(self.TABLES[selected_choice][0])
-            subwindow.geometry("300x300")
+            if row is not None:
+                # Create a subwindow
+                subwindow = ctk.CTk()
+                subwindow.title(self.TABLES[selected_choice][0])
+                subwindow.geometry("300x300")
 
-        
-            entries = []
-            for i, label_text in enumerate(columns):
-                label = ctk.CTkLabel(subwindow, text=label_text)
-                label.grid(row=i, column=0)
+                entries = []
+                for i, label_text in enumerate(columns):
+                    label = ctk.CTkLabel(subwindow, text=label_text)
+                    label.grid(row=i, column=0)
 
-                entry = ctk.CTkEntry(subwindow)
-                entry.grid(row=i, column=1)
-                entries.append(entry)
+                    entry = ctk.CTkEntry(subwindow)
+                    entry.grid(row=i, column=1)
+                    entry.insert(0, row[i])
+                    entries.append(entry)
 
-            # Fill the entries with the data from the selected row
-            
+                def update_row():
+                    values = [entry.get() for entry in entries]
+                    update_query = f"UPDATE {table_name} SET {', '.join(f'{column}=?' for column in columns)} WHERE id={self.entry_id.get()}"  # noqa: E501
+                    cursor.execute(update_query, values)
+                    conn.commit()
+                    subwindow.destroy()
+
+                update_button = ctk.CTkButton(subwindow, text="Update", command=update_row)  # noqa: E501
+                update_button.grid(row=len(columns), columnspan=2)
+
+                # Main loop
+                subwindow.mainloop()
+            else:
+                print("No matching record found.")
+
+    
                 
-            
- 
-
-            # main loop
-            subwindow.mainloop()
-
-            
-           
+        
 
 if __name__ == "__main__":
     app = App()

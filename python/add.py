@@ -16,7 +16,7 @@ class FourChoiceFrame(ctk.CTkFrame):
         self.titre = ctk.CTkLabel(self, text="Choisissez une table", font=self.titrefont) # noqa: E501
         self.titre.pack(pady=1)
 
-        choices = ["videos", "commentaires", "chaines", "n_com"]
+        choices = ["videos", "commentaires", "chaines",]
         for i, choice in enumerate(choices, start=1):
             radio_button = ctk.CTkRadioButton(self, text=choice, variable=self.radio_var, value=i)  # noqa: E501
             radio_button.pack(anchor="w")
@@ -27,7 +27,6 @@ class App(ctk.CTk):
         1: ("Videos", ["titre", "lien", "description", "likes", "dislikes", "id_chaine", "views", "timestamp"]),  # noqa: E501
         2: ("Commentaires", ["contenu", "id_video", "timestamp"]),
         3: ("Chaines", ["pseudo", "abonnes", "bio", "timestamp", "email"]),
-        4: ("N_com", ["id_video", "id_commentaire"])
     }
 
     def __init__(self):
