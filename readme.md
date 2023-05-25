@@ -1,3 +1,6 @@
-# dépandance
+# prérequit
 
-- lancer:  pip install -r requirements.txt
+## dépandances
+
+- if faut installer faker et customtkinter
+
